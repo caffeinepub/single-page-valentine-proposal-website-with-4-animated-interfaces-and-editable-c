@@ -1,0 +1,384 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        --background: 0.98 0.01 20;
+        --foreground: 0.2 0.02 20;
+        --card: 1 0 0;
+        --card-foreground: 0.145 0 0;
+        --popover: 1 0 0;
+        --popover-foreground: 0.145 0 0;
+        --primary: 0.205 0 0;
+        --primary-foreground: 0.985 0 0;
+        --secondary: 0.97 0 0;
+        --secondary-foreground: 0.205 0 0;
+        --muted: 0.97 0 0;
+        --muted-foreground: 0.556 0 0;
+        --accent: 0.97 0 0;
+        --accent-foreground: 0.205 0 0;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.922 0 0;
+        --input: 0.922 0 0;
+        --ring: 0.708 0 0;
+        --chart-1: 0.646 0.222 41.116;
+        --chart-2: 0.6 0.118 184.704;
+        --chart-3: 0.398 0.07 227.392;
+        --chart-4: 0.828 0.189 84.429;
+        --chart-5: 0.769 0.188 70.08;
+        --sidebar: 0.985 0 0;
+        --sidebar-foreground: 0.145 0 0;
+        --sidebar-primary: 0.205 0 0;
+        --sidebar-primary-foreground: 0.985 0 0;
+        --sidebar-accent: 0.97 0 0;
+        --sidebar-accent-foreground: 0.205 0 0;
+        --sidebar-border: 0.922 0 0;
+        --sidebar-ring: 0.708 0 0;
+        
+        /* Custom romantic color palette */
+        --crimson: oklch(0.45 0.22 15);
+        --soft-pink: oklch(0.95 0.03 15);
+        --romantic-dark: oklch(0.35 0.05 15);
+        --romantic-accent: oklch(0.65 0.18 15);
+        --vintage-paper: oklch(0.96 0.02 50);
+    }
+
+    .dark {
+        --background: 0.145 0 0;
+        --foreground: 0.985 0 0;
+        --card: 0.205 0 0;
+        --card-foreground: 0.985 0 0;
+        --popover: 0.269 0 0;
+        --popover-foreground: 0.985 0 0;
+        --primary: 0.922 0 0;
+        --primary-foreground: 0.205 0 0;
+        --secondary: 0.269 0 0;
+        --secondary-foreground: 0.985 0 0;
+        --muted: 0.269 0 0;
+        --muted-foreground: 0.708 0 0;
+        --accent: 0.371 0 0;
+        --accent-foreground: 0.985 0 0;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.205 0 0;
+        --border: 1 0 0 / 10%;
+        --input: 1 0 0 / 15%;
+        --ring: 0.556 0 0;
+        --chart-1: 0.488 0.243 264.376;
+        --chart-2: 0.696 0.17 162.48;
+        --chart-3: 0.769 0.188 70.08;
+        --chart-4: 0.627 0.265 303.9;
+        --chart-5: 0.645 0.246 16.439;
+        --sidebar: 0.205 0 0;
+        --sidebar-foreground: 0.985 0 0;
+        --sidebar-primary: 0.488 0.243 264.376;
+        --sidebar-primary-foreground: 0.985 0 0;
+        --sidebar-accent: 0.269 0 0;
+        --sidebar-accent-foreground: 0.985 0 0;
+        --sidebar-border: 1 0 0 / 10%;
+        --sidebar-ring: 0.439 0 0;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer utilities {
+    /* Custom romantic colors */
+    .bg-crimson {
+        background-color: var(--crimson);
+    }
+    
+    .bg-soft-pink {
+        background-color: var(--soft-pink);
+    }
+    
+    .text-romantic-dark {
+        color: var(--romantic-dark);
+    }
+    
+    .text-romantic-accent {
+        color: var(--romantic-accent);
+    }
+    
+    .bg-romantic-accent {
+        background-color: var(--romantic-accent);
+    }
+    
+    .bg-soft-gradient {
+        background: linear-gradient(135deg, var(--soft-pink) 0%, oklch(0.98 0.02 30) 100%);
+    }
+    
+    .bg-vintage-paper {
+        background-color: var(--vintage-paper);
+        background-image: 
+            repeating-linear-gradient(
+                transparent,
+                transparent 31px,
+                oklch(0.88 0.01 50 / 0.4) 31px,
+                oklch(0.88 0.01 50 / 0.4) 32px
+            );
+    }
+    
+    /* Typography */
+    .text-romantic {
+        font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+        font-size: 2rem;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+    
+    .text-celebration {
+        font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+        font-size: 2.5rem;
+        line-height: 1.5;
+        font-weight: 600;
+    }
+    
+    /* New Interface 1 typography styles */
+    .text-intro-bubbly {
+        font-family: 'Comic Sans MS', 'Chalkboard SE', 'Bradley Hand', 'Marker Felt', sans-serif;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+    
+    .text-question-romantic {
+        font-family: 'Brush Script MT', 'Lucida Calligraphy', 'Edwardian Script ITC', 'Georgia', serif;
+        font-size: 2.25rem;
+        line-height: 1.5;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+    }
+    
+    .font-romantic {
+        font-family: 'Georgia', 'Palatino', 'Times New Roman', serif;
+    }
+    
+    .text-handwritten {
+        font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+    
+    .text-vintage-script {
+        font-family: 'Brush Script MT', 'Lucida Calligraphy', 'Edwardian Script ITC', 'Lucida Handwriting', cursive;
+        font-size: 1.15rem;
+        line-height: 1.9;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+    }
+    
+    /* Vintage letter styling */
+    .vintage-letter {
+        box-shadow: 
+            inset 0 2px 4px rgba(0, 0, 0, 0.05),
+            0 4px 12px rgba(0, 0, 0, 0.1);
+        border: 1px solid oklch(0.88 0.01 50);
+    }
+    
+    /* Animations */
+    @keyframes float-up {
+        0% {
+            transform: translateY(100vh) translateX(0) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.6;
+        }
+        90% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: translateY(-100vh) translateX(50px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes burst-float {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg) scale(0);
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        100% {
+            transform: translate(
+                calc(-50% + cos(var(--angle)) * var(--distance)),
+                calc(-50% + sin(var(--angle)) * var(--distance) - 200px)
+            ) rotate(360deg) scale(1);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes gentle-float {
+        0% {
+            transform: translateY(0) scale(0);
+            opacity: 0;
+        }
+        20% {
+            opacity: 0.6;
+        }
+        80% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: translateY(-100px) scale(1);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes click-heart {
+        0% {
+            transform: translate(-50%, -50%) scale(0) rotate(0deg);
+            opacity: 1;
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(-50%, -80px) scale(0.5) rotate(360deg);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes button-glow {
+        0%, 100% {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        50% {
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+        }
+    }
+    
+    @keyframes button-glow-enhanced {
+        0%, 100% {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 192, 203, 0.3);
+        }
+        50% {
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.8), 0 0 90px rgba(255, 192, 203, 0.5);
+        }
+    }
+    
+    @keyframes letter-unfold {
+        0% {
+            transform: rotateX(-90deg);
+            opacity: 0;
+        }
+        100% {
+            transform: rotateX(0deg);
+            opacity: 1;
+        }
+    }
+    
+    .animate-float-up {
+        animation: float-up linear infinite;
+    }
+    
+    .animate-burst-float {
+        animation: burst-float 2s ease-out forwards;
+    }
+    
+    .animate-gentle-float {
+        animation: gentle-float 4s ease-out forwards;
+    }
+    
+    .animate-click-heart {
+        animation: click-heart 2s ease-out forwards;
+    }
+    
+    .button-glow {
+        animation: button-glow 2s ease-in-out infinite;
+    }
+    
+    .button-glow-enhanced {
+        animation: button-glow-enhanced 2s ease-in-out infinite;
+    }
+    
+    .letter-unfold {
+        animation: letter-unfold 0.5s ease-out;
+        transform-origin: top;
+    }
+    
+    /* Journal paper effect */
+    .journal-paper {
+        background-image: 
+            repeating-linear-gradient(
+                transparent,
+                transparent 31px,
+                oklch(0.85 0.02 15 / 0.3) 31px,
+                oklch(0.85 0.02 15 / 0.3) 32px
+            );
+    }
+    
+    /* Memory icon card hover effect */
+    .memory-icon-card {
+        position: relative;
+    }
+    
+    .memory-icon-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 1rem;
+        padding: 2px;
+        background: linear-gradient(135deg, var(--romantic-accent), var(--soft-pink));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .memory-icon-card:hover::before {
+        opacity: 0.5;
+    }
+    
+    /* Responsive text sizes */
+    @media (max-width: 768px) {
+        .text-romantic {
+            font-size: 1.5rem;
+        }
+        
+        .text-celebration {
+            font-size: 1.75rem;
+        }
+        
+        .text-handwritten {
+            font-size: 1rem;
+        }
+        
+        .text-intro-bubbly {
+            font-size: 1rem;
+        }
+        
+        .text-question-romantic {
+            font-size: 1.5rem;
+        }
+        
+        .text-vintage-script {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .text-question-romantic {
+            font-size: 2rem;
+        }
+    }
+}
